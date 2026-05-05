@@ -1,0 +1,10 @@
+{
+  "name": "karasiki-logistics",
+  "version": "1.0.0",
+  "description": "Учебный проект: простой backend для подбора компании доставки",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "UNLICENSED"
+}

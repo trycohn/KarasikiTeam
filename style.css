@@ -84,6 +84,7 @@ h3 { margin-top: 0; font-size: 1rem; color: #111; }
 
 .input-group {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -97,12 +98,16 @@ input, select {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-size: 1rem;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .input-with-unit {
     position: relative;
     display: flex;
     align-items: center;
+    min-width: 0;
+    width: 100%;
 }
 
 .input-with-unit input { width: 100%; padding-right: 35px; }
@@ -125,7 +130,27 @@ input, select {
     margin-top: 10px;
 }
 
+.primary-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.form-hint {
+    margin: 12px 0 0;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.35;
+}
+
+.form-hint.error {
+    color: #b91c1c;
+}
+
 /* Results Section */
+.results-list {
+    margin-bottom: 20px;
+}
+
 .results-header {
     display: flex;
     justify-content: space-between;
@@ -200,8 +225,6 @@ input, select {
 
 .metric .value { font-weight: bold; font-size: 1.1rem; }
 
-.rating { color: #f59e0b; }
-
 .card-explanation { padding: 20px; background: #fdfaf3; }
 
 .card-explanation h4 { margin: 0 0 10px 0; font-size: 0.9rem; }
@@ -232,3 +255,33 @@ input, select {
 .review-avatar { width: 30px; height: 30px; border-radius: 50%; }
 
 .stars { color: #f59e0b; font-size: 0.8rem; }
+
+.empty-state {
+    color: var(--text-light);
+}
+
+.empty-state h3 {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .results-header,
+    .featured-card {
+        display: block;
+    }
+
+    .card-main-info {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .metrics {
+        flex-wrap: wrap;
+    }
+}
