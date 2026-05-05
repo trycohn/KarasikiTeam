@@ -1,0 +1,234 @@
+:root {
+    --bg-color: #f0f2f5;
+    --primary-blue: #1e4277;
+    --accent-gold: #c69c3a;
+    --text-dark: #333;
+    --text-light: #666;
+    --white: #ffffff;
+    --border-color: #d1d5db;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    background: var(--white);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i { color: var(--accent-gold); }
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-btn {
+    background: #e5e7eb;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* Main Layout */
+.container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 25px;
+    padding: 30px 40px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* Form Styles */
+h3 { margin-top: 0; font-size: 1rem; color: #111; }
+
+.input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.input-group label { font-size: 0.85rem; color: var(--text-light); }
+
+input, select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.input-with-unit {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-unit input { width: 100%; padding-right: 35px; }
+
+.input-with-unit span {
+    position: absolute;
+    right: 10px;
+    color: var(--text-light);
+}
+
+.primary-btn {
+    width: 100%;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Results Section */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    background: #e5e7eb;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.tab {
+    border: none;
+    background: none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab.active { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+/* Recommendation Card */
+.recommendation-badge {
+    background: var(--accent-gold);
+    color: white;
+    width: fit-content;
+    padding: 4px 12px;
+    border-radius: 4px 4px 0 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.featured-card {
+    border: 2px solid var(--accent-gold);
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+    padding: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-main-info { padding: 20px; border-right: 1px solid #eee; }
+
+.company-info { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.gold { background: linear-gradient(135deg, #c69c3a, #f3d68e); }
+.blue { background: #3b82f6; }
+.grey { background: #9ca3af; }
+
+.company-name { font-weight: bold; font-size: 1.1rem; }
+
+.metrics { display: flex; gap: 30px; }
+
+.metric { display: flex; flex-direction: column; }
+
+.metric .label { font-size: 0.8rem; color: var(--text-light); }
+
+.metric .value { font-weight: bold; font-size: 1.1rem; }
+
+.rating { color: #f59e0b; }
+
+.card-explanation { padding: 20px; background: #fdfaf3; }
+
+.card-explanation h4 { margin: 0 0 10px 0; font-size: 0.9rem; }
+
+.card-explanation p { font-size: 0.85rem; color: var(--text-light); line-height: 1.4; }
+
+.order-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Simple Cards */
+.simple-card { margin-bottom: 15px; }
+
+.metrics-row { font-size: 0.9rem; margin-top: 5px; color: var(--text-light); }
+
+/* Reviews */
+.reviews-header { display: flex; justify-content: space-between; cursor: pointer; }
+
+.review-item { display: flex; gap: 10px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; }
+
+.review-avatar { width: 30px; height: 30px; border-radius: 50%; }
+
+.stars { color: #f59e0b; font-size: 0.8rem; }

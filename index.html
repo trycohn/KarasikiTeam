@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логистик-Навигатор</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Иконки для красоты -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-box-open"></i>
+            <span>Логистик-Навигатор</span>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn"><i class="fas fa-th-large"></i> Панель управления</button>
+            <button class="nav-btn"><i class="fas fa-list-ul"></i> Мои заказы</button>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/40?img=32" alt="User" class="avatar">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Левая колонка: Форма -->
+        <aside class="sidebar">
+            <div class="card form-container">
+                <h3>Маршрут</h3>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Происхождение</label>
+                        <input type="text" id="origin" placeholder="Москва" value="Москва">
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="input-group">
+                        <label>Назначение</label>
+                        <input type="text" id="destination" placeholder="Владивосток" value="Владивосток">
+                    </div>
+                </div>
+
+                <h3>Параметры груза</h3>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Вес</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="weight" value="5">
+                            <span>кг</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Размеры</label>
+                        <div class="input-with-unit">
+                            <input type="text" id="dimensions" placeholder="30х30х40">
+                            <span>см</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Приоритет</h3>
+                <div class="input-group">
+                    <select id="priority">
+                        <option value="reliability">Наивысшая надежность</option>
+                        <option value="price">Минимальная стоимость</option>
+                        <option value="speed">Максимальная скорость</option>
+                    </select>
+                </div>
+
+                <button class="primary-btn" id="calculate-btn">Рассчитать стоимость</button>
+            </div>
+        </aside>
+
+        <!-- Правая колонка: Результаты -->
+        <section class="results">
+            <div class="results-header">
+                <h2>Найденные варианты (<span id="results-count">5</span>)</h2>
+                <div class="tabs">
+                    <button class="tab active">Рекомендация</button>
+                    <button class="tab">Цена</button>
+                    <button class="tab">Срок</button>
+                    <button class="tab">Рейтинг</button>
+                </div>
+            </div>
+
+            <!-- Рекомендованный вариант -->
+            <div class="recommendation-badge">НАШ ВЫБОР</div>
+            <div class="card featured-card">
+                <div class="card-main-info">
+                    <div class="company-info">
+                        <div class="company-logo gold"><i class="fas fa-shield-alt"></i></div>
+                        <div class="company-name">ТК "Надежный Маршрут"</div>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="label">Цена</span>
+                            <span class="value">1500 руб.</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Срок</span>
+                            <span class="value">7 дней</span>
+                        </div>
+                        <div class="metric">
+                            <span class="label">Рейтинг</span>
+                            <span class="value rating">4.8 <i class="fas fa-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-explanation">
+                    <h4>Почему мы выбрали эту компанию?</h4>
+                    <p>Высокий рейтинг надежности по данным обратной связи от пользователей на этом маршруте. Минимальный риск задержек при умеренной цене.</p>
+                    <button class="order-btn">Оформить заказ</button>
+                </div>
+            </div>
+
+            <!-- Обычные варианты -->
+            <div id="other-variants">
+                <div class="card simple-card">
+                    <div class="company-info">
+                        <div class="company-logo blue"><i class="fas fa-truck"></i></div>
+                        <div>
+                            <div class="company-name">ТК "Логистик Экспресс"</div>
+                            <div class="metrics-row">
+                                <span>2500 руб.</span> • <span>5 дней</span> • <span class="rating">4.5 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card simple-card">
+                    <div class="company-info">
+                        <div class="company-logo grey"><i class="fas fa-truck-loading"></i></div>
+                        <div>
+                            <div class="company-name">ТК "Бюджет Логистик"</div>
+                            <div class="metrics-row">
+                                <span>500 руб.</span> • <span>14 дней</span> • <span class="rating">3.9 <i class="fas fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Отзывы -->
+            <div class="reviews-section card">
+                <div class="reviews-header" onclick="toggleReviews()">
+                    <h3>Последние отзывы</h3>
+                    <i class="fas fa-chevron-up" id="reviews-toggle-icon"></i>
+                </div>
+                <div id="reviews-content">
+                    <div class="review-item">
+                        <img src="https://i.pravatar.cc/30?img=12" class="review-avatar">
+                        <div class="review-body">
+                            <div class="stars">★★★★★</div>
+                            <p>Груз дошел быстро. Без повреждений.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
